@@ -14,17 +14,20 @@ function App() {
   useEffect(() => {
     if (totalDev) {
       const newTotalDev = Object.assign({}, totalDev);
+
       Object.keys(totalDev).forEach((control) => {
-        if (state.lastNDevs) {
-          const lastDev = state.lastNDevs[control];
-          if (lastDev) {
-            newTotalDev[control] = lastDev + control.dev;
-          }
+        const lastDev = state.lastNDevs[control];
+
+        if (lastDev) {
+          const newDev = parseFloat(lastDev) + parseFloat(totalDev[control]);
+
+          newTotalDev[control] = newDev;
         }
       });
-      setState({ lastNDev: newTotalDev });
+
+      setState({ lastNDevs: newTotalDev });
     }
-  }, []);
+  }, [features]);
 
   let displayColumns = [];
 
@@ -35,7 +38,7 @@ function App() {
   return (
     <div className="App">
       <div className="App-Part">
-        {displayColumns &&
+        {displayColumns.length ? (
           displayColumns.map((featureColumn, indx) => {
             return (
               <div className="Feature-wrapper">
@@ -44,13 +47,16 @@ function App() {
                     <Feature
                       key={indx}
                       controls={column}
-                      totalDev={state.lastNDev}
+                      totalDev={state.lastNDevs}
                     />
                   </div>
                 ))}
               </div>
             );
-          })}
+          })
+        ) : (
+          <div className="App-Loader">Loading...</div>
+        )}
       </div>
     </div>
   );
@@ -91,330 +97,3 @@ const getFeaturesDisplay = (features) => {
   }
   return displayColumns;
 };
-
-const featurwes = [
-  [
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "length",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "diameter",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "length",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-  ],
-  [
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-  ],
-  [
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-  ],
-  [
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-  ],
-  [
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-  ],
-  [
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "x",
-    },
-    {
-      dev: "0.332",
-      id: "x0.332",
-      name: "diameter",
-    },
-  ],
-];

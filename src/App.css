@@ -42,10 +42,17 @@ body {
   min-height: 100%;
   padding: 0;
   margin: 0;
+  background-color: #9bb8ec;
 }
 
 .App-Part {
   display: flex;
   padding: 50px 5%;
   flex-wrap: wrap;
+}
+.App-Loader {
+  color: white;
+  font-size: 18px;
+  display: flex;
+  margin: auto;
 }

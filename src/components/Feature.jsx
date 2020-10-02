@@ -5,9 +5,9 @@ import { reduce } from "rxjs/operators";
 
 const Feature = ({ controls, totalDev = {} }) => {
   const columns = getControlsColumns(controls);
-  const totalDeviation = Object.keys.length
+  const totalDeviation = Object.keys(totalDev).length
     ? Object.keys(totalDev).reduce((total, control) => {
-        return total + parseFloat(totalDev[control]).toFixed(3);
+        return total + parseFloat(totalDev[control]);
       }, 0)
     : 0;
 
@@ -15,7 +15,6 @@ const Feature = ({ controls, totalDev = {} }) => {
     ? parseFloat(totalDeviation) / controls.length
     : 0;
 
-  console.log("Feature -> avgDeviation", avgDeviation);
   return (
     <div className="Feature">
       <table className="Feature-Table">
@@ -68,15 +67,15 @@ const Feature = ({ controls, totalDev = {} }) => {
 
 const getBackgroundColor = (deviation) => {
   if (deviation < 1) {
-    return "green";
+    return "#5cb85c";
   }
 
   if (deviation < 3) {
-    return "yellow";
+    return "#f0ad4e";
   }
 
   if (deviation >= 3) {
-    return "red";
+    return "#d9534f";
   }
 };
 

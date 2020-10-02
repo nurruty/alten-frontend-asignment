@@ -8,19 +8,19 @@ const Control = (props) => {
   let iconColor;
   if (dev !== "-") {
     if (dev < 0.3) {
-      iconColor = "green";
+      iconColor = "#5cb85c";
     } else if (dev < 0.6) {
-      iconColor = "yellow";
+      iconColor = "f0ad4e";
     } else {
-      iconColor = "red";
+      iconColor = "d9534f";
     }
   }
 
   return (
     <tr>
       <th>{name}</th>
-      <th>{dev}</th>
-      <th>{devOutTot}</th>
+      <th>{dev !== "-" ? dev.toFixed(3) : dev}</th>
+      <th>{devOutTot !== "-" ? devOutTot.toFixed(3) : devOutTot}</th>
       {iconColor ? (
         <th>
           <FontAwesomeIcon icon={faCheckCircle} color={iconColor} />

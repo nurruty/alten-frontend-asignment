@@ -1,7 +1,7 @@
 import { interval } from "rxjs";
 import { map } from "rxjs/operators";
 
-const params = ["x", "y", "z", "length", "diameter"];
+const params = ["x", "y", "z", "length", "diameter", "temperature"];
 
 const getFeatures = interval(10000).pipe(
   map((p) => {
@@ -15,7 +15,7 @@ const getFeatures = interval(10000).pipe(
       for (let j = 0; j < totControls; j++) {
         controls = controls.concat(
           params.map((pr) => {
-            const m = Math.random().toFixed(3);
+            const m = Math.random() / 10;
             return {
               id: pr + m.toString(),
               name: pr,

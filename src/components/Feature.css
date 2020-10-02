@@ -41,8 +41,11 @@ td {
 
 .Feature-Table {
   border-radius: 5px;
-  font-size: 12px;
-  font-weight: normal;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 25px;
   border: none;
   border-collapse: collapse;
   width: 100%;
@@ -64,12 +67,10 @@ td {
 
 .Feature-Table thead th {
   color: #ffffff;
-  background: #4fc3a1;
 }
 
 .Feature-Table thead th:nth-child(odd) {
   color: #ffffff;
-  background: #324960;
 }
 
 .Feature-Table tr:nth-child(even) {
