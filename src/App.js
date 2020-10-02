@@ -46,6 +46,7 @@ function App() {
                   <div style={{ marginTop: index === 1 ? "10px" : "0" }}>
                     <Feature
                       key={indx}
+                      name={mockFeaturesNames[index % 2]}
                       controls={column}
                       totalDev={state.lastNDevs}
                     />
@@ -63,6 +64,8 @@ function App() {
 }
 
 export default App;
+
+const mockFeaturesNames = ["Seam", "Slot", "Hole"];
 
 const getTotalDeviationPiece = (features) => {
   const lastDevByControl = {};

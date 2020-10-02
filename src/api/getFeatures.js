@@ -3,7 +3,7 @@ import { map } from "rxjs/operators";
 
 const params = ["x", "y", "z", "length", "diameter", "temperature"];
 
-const getFeatures = interval(10000).pipe(
+const getFeatures = interval(5000).pipe(
   map((p) => {
     const features = [];
     const totFeatures = Math.floor(Math.random() * 6) + 1;

@@ -3,7 +3,7 @@ import Control from "./Control";
 import "./Feature.css";
 import { reduce } from "rxjs/operators";
 
-const Feature = ({ controls, totalDev = {} }) => {
+const Feature = ({ name, controls, totalDev = {} }) => {
   const columns = getControlsColumns(controls);
   const totalDeviation = Object.keys(totalDev).length
     ? Object.keys(totalDev).reduce((total, control) => {
@@ -24,7 +24,7 @@ const Feature = ({ controls, totalDev = {} }) => {
         >
           <thead>
             <tr>
-              <th>Features Table</th>
+              <th>{name}</th>
             </tr>
           </thead>
         </div>
