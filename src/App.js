@@ -46,7 +46,7 @@ function App() {
                   <div style={{ marginTop: index === 1 ? "10px" : "0" }}>
                     <Feature
                       key={indx}
-                      name={mockFeaturesNames[index % 2]}
+                      name={mockFeaturesNames[indx % 2]}
                       controls={column}
                       totalDev={state.lastNDevs}
                     />
