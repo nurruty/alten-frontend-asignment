@@ -18,42 +18,44 @@ const Feature = ({ name, controls, totalDev = {} }) => {
   return (
     <div className="Feature">
       <table className="Feature-Table">
-        <div
+        <thead
           className="Table-Header"
           style={{ backgroundColor: getBackgroundColor(avgDeviation) }}
         >
-          <thead>
-            <tr>
-              <th>{name}</th>
-            </tr>
-          </thead>
-        </div>
-        <div className="Table-Body">
+          <tr>
+            <th>{name}</th>
+          </tr>
+        </thead>
+
+        <tbody className="Table-Body">
           {columns.map((col, indx) => {
             return (
               <table
+                key={`table-${indx}`}
                 className="Table-Column"
                 style={{ width: `${100 / columns.length}%` }}
               >
-                <tr>
-                  <th>Control</th>
-                  <th>Dev</th>
-                  <th>Dev out Tot</th>
-                </tr>
-                {col &&
-                  col.map((control, ix) => {
-                    return (
-                      <Control
-                        key={control ? control.id : `rand-${ix}`}
-                        devOutTot={control ? totalDev[control.name] : "-"}
-                        {...control}
-                      />
-                    );
-                  })}
+                <tbody>
+                  <tr>
+                    <th>Control</th>
+                    <th>Dev</th>
+                    <th>Dev out Tot</th>
+                  </tr>
+                  {col &&
+                    col.map((control, ix) => {
+                      return (
+                        <Control
+                          key={control ? control.id : `rand-${ix}`}
+                          devOutTot={control ? totalDev[control.name] : "-"}
+                          {...control}
+                        />
+                      );
+                    })}
+                </tbody>
               </table>
             );
           })}
-        </div>
+        </tbody>
 
         <tfoot>
           <tr>

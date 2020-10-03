@@ -41,11 +41,13 @@ function App() {
         {displayColumns.length ? (
           displayColumns.map((featureColumn, indx) => {
             return (
-              <div className="Feature-wrapper">
+              <div key={indx} className="Feature-wrapper">
                 {featureColumn.map((column, index) => (
-                  <div style={{ marginTop: index === 1 ? "10px" : "0" }}>
+                  <div
+                    key={indx + mockFeaturesNames[indx % 4]}
+                    style={{ marginTop: index === 1 ? "10px" : "0" }}
+                  >
                     <Feature
-                      key={indx}
                       name={mockFeaturesNames[indx % 4]}
                       controls={column}
                       totalDev={state.lastNDevs}
