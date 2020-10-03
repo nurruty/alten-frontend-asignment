@@ -7,12 +7,12 @@ const Control = (props) => {
 
   let iconColor;
   if (dev !== "-") {
-    if (dev < 0.3) {
-      iconColor = "#5cb85c";
-    } else if (dev < 0.6) {
-      iconColor = "f0ad4e";
+    if (dev < 0.03) {
+      iconColor = "green";
+    } else if (dev < 0.06) {
+      iconColor = "yellow";
     } else {
-      iconColor = "d9534f";
+      iconColor = "red";
     }
   }
 
